@@ -16,5 +16,16 @@ namespace Memory
         {
             InitializeComponent();
         }
+
+        //Saker när programmet öppnar
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBoxClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
     }
 }

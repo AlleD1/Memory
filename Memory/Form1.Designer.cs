@@ -70,6 +70,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(70, 95);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox2
             // 
@@ -78,6 +79,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(70, 95);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox3
             // 
@@ -86,6 +88,7 @@
             this.pictureBox3.Size = new System.Drawing.Size(70, 95);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox4
             // 
@@ -94,6 +97,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(70, 95);
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox5
             // 
@@ -102,6 +106,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(70, 95);
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox6
             // 
@@ -110,6 +115,7 @@
             this.pictureBox6.Size = new System.Drawing.Size(70, 95);
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox7
             // 
@@ -118,6 +124,7 @@
             this.pictureBox7.Size = new System.Drawing.Size(70, 95);
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox8
             // 
@@ -126,6 +133,7 @@
             this.pictureBox8.Size = new System.Drawing.Size(70, 95);
             this.pictureBox8.TabIndex = 7;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox9
             // 
@@ -134,6 +142,7 @@
             this.pictureBox9.Size = new System.Drawing.Size(70, 95);
             this.pictureBox9.TabIndex = 8;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox10
             // 
@@ -142,6 +151,7 @@
             this.pictureBox10.Size = new System.Drawing.Size(70, 95);
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox11
             // 
@@ -150,6 +160,7 @@
             this.pictureBox11.Size = new System.Drawing.Size(70, 95);
             this.pictureBox11.TabIndex = 10;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox12
             // 
@@ -158,6 +169,7 @@
             this.pictureBox12.Size = new System.Drawing.Size(70, 95);
             this.pictureBox12.TabIndex = 11;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox13
             // 
@@ -166,6 +178,7 @@
             this.pictureBox13.Size = new System.Drawing.Size(70, 95);
             this.pictureBox13.TabIndex = 12;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox14
             // 
@@ -174,6 +187,7 @@
             this.pictureBox14.Size = new System.Drawing.Size(70, 95);
             this.pictureBox14.TabIndex = 13;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox15
             // 
@@ -182,6 +196,7 @@
             this.pictureBox15.Size = new System.Drawing.Size(70, 95);
             this.pictureBox15.TabIndex = 14;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // pictureBox16
             // 
@@ -190,6 +205,7 @@
             this.pictureBox16.Size = new System.Drawing.Size(70, 95);
             this.pictureBox16.TabIndex = 15;
             this.pictureBox16.TabStop = false;
+            this.pictureBox16.Click += new System.EventHandler(this.PictureBoxClick);
             // 
             // Form1
             // 
@@ -215,6 +231,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
