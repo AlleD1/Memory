@@ -26,7 +26,7 @@ namespace Memory
 
         private void PictureBoxClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+
         }
     }
 }
