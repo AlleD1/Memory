@@ -13,7 +13,6 @@ namespace Memory
 {
     public partial class MemoryBoard : Form
     {
-
         int firstClickedTag = 0, secondClickedTag = 0, numberOfPairsDiscovered = 0,
             numberOfCardsUp = 0, numberOfMoves = 0;
 
@@ -32,7 +31,7 @@ namespace Memory
         }
 
         //Saker när programmet öppnar
-        private void Form1_Load(object sender, EventArgs e)
+        private void MemoryBoard_Load(object sender, EventArgs e)
         {
             //Hittar PictureBoxarna på brädet
             PictureBoxLocator();
@@ -62,7 +61,7 @@ namespace Memory
                         string pictureboxIndex = Regex.Match(p.Name, @"\d+").Value;
                         p.Image = cardImagesShuffled[int.Parse(pictureboxIndex) - 1];
                     }
-                    //Om en redan vänt kort klickas
+                    //Om ett redan vänt kort klickas
                     else
                     {
                         return;
@@ -103,14 +102,25 @@ namespace Memory
                     numberOfCardsUp = 0;
                     numberOfMoves++;
                 }
-
             }
             //Om alla paren är hittade
             else
             {
+                //Mata in vad userinput snappar upp in i dictionaryn
                 //Bl.a. kalla på UserInput
-            }
+                var userInput = new UserInput();
 
+                var result = userInput.ShowDialog();
+
+                //Om "Continue"-knappen klickats
+                if(result == DialogResult.OK)
+                {
+                    participators.Add(numberOfMoves, userInput.Name);
+                }
+
+                participators.TryGetValue(numberOfMoves, out string temp);
+                label3.Text = temp;
+            }
             label2.Text = numberOfMoves.ToString();
         }
 
