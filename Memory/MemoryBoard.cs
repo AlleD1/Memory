@@ -62,8 +62,13 @@ namespace Memory
                         string pictureboxIndex = Regex.Match(p.Name, @"\d+").Value;
                         p.Image = cardImagesShuffled[int.Parse(pictureboxIndex) - 1];
                     }
+                    //Om en redan vänt kort klickas
+                    else
+                    {
+                        return;
+                    }
 
-                    //Sätter bilden som PictureBox p har till sendern som är på brädet
+                    //Sätter bilden som PictureBox p fick till sendern som är på brädet
                     sender = p.Image;
 
                     //Om inga kort är upvända sparas första kortvärdet
@@ -75,7 +80,7 @@ namespace Memory
                     {
                         secondClickedTag = int.Parse(p.Tag.ToString());
 
-                        //Om första kortvärdet är samma som andra Kortvärdet 
+                        //Om första kortvärdet är samma som andra kortvärdet 
                         if (firstClickedTag == secondClickedTag)
                         {
                             discoveredPairs.Add(firstClickedTag);
@@ -84,12 +89,12 @@ namespace Memory
                     }
                     numberOfCardsUp++;
                 }
-                //När två kort är uppvända
+                //Om två kort är uppvända
                 else
                 {
-                    //Hitta bättre jämförelse
                     foreach (PictureBox temp in pictureBoxesOnBoard)
                     {
+                        //Om det första och andra PictureBox tagen INTE är samma -> INTE samma kort
                         if ((int.Parse(temp.Tag.ToString()) == firstClickedTag || int.Parse(temp.Tag.ToString()) == secondClickedTag) && firstClickedTag != secondClickedTag)
                         {
                             temp.Image = Image.FromFile("images/cards/baksida.jpg");
