@@ -10,5 +10,11 @@ namespace Memory
     class GlobalVariables
     {
 
+
+        //Reseta värdena för nästa omgång
+        private static void Reset()
+        {
+
+        }
     }
 }

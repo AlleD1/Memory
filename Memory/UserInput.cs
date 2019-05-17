@@ -26,11 +26,11 @@ namespace Memory
             string input = textBox1.Text;
 
             //Om namn angets
-            if(!(input == ""))
+            if(input != "")
             {
-                this.Name = input;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                Name = input;
+                DialogResult = DialogResult.OK;
+                Close();
             }
             //Om namn INTE angets
             else

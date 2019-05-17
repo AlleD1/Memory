@@ -41,6 +41,12 @@ namespace Memory
             CardTurner();
         }
 
+        //Reseta värdena för ny omgång
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //När en PictureBox på brädet klickas
         private void PictureBoxClick(object sender, EventArgs e)
         {
@@ -106,20 +112,18 @@ namespace Memory
                 //Mata in vad userinput snappar upp in i dictionaryn
                 //Bl.a. kalla på UserInput
                 var userInput = new UserInput();
-
                 var result = userInput.ShowDialog();
 
-                //Om "Continue"-knappen klickats
+                //Om godtagbart värde returneras (om UserInput inte stängs med X)
                 if(result == DialogResult.OK)
                 {
                     participators.Add(numberOfMoves, userInput.Name);
                 }
-
-                participators.TryGetValue(numberOfMoves, out string temp);
-                label3.Text = temp;
             }
             label2.Text = numberOfMoves.ToString();
         }
+
+
 
         //Ger en List med 8 blandade dubbletter 
         private void PictureSelector()
