@@ -44,8 +44,6 @@ namespace Memory
         //När en PictureBox på brädet klickas
         private void PictureBoxClick(object sender, EventArgs e)
         {
-            var discoveredPairs = new List<int>();
-
             PictureBox p = (PictureBox)sender;
 
             //Om alla paren INTE är hittade
@@ -82,7 +80,6 @@ namespace Memory
                         //Om första kortvärdet är samma som andra kortvärdet 
                         if (firstClickedTag == secondClickedTag)
                         {
-                            discoveredPairs.Add(firstClickedTag);
                             numberOfPairsDiscovered++;
                         }
                     }

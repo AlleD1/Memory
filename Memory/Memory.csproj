@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalVariables.cs" />
     <Compile Include="MemoryBoard.cs">
       <SubType>Form</SubType>
     </Compile>
