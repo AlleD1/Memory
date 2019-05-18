@@ -22,6 +22,8 @@ namespace Memory
         List<Image> cardImagesShuffled = new List<Image>();
         //Pictureboxarna på brädet
         List<PictureBox> pictureBoxesOnBoard = new List<PictureBox>();
+        //Lista med antalet drag för varje omgång
+        List<int> finalScores = new List<int>();
 
         Dictionary<int, string> participators = new Dictionary<int, string>();
 
@@ -41,10 +43,50 @@ namespace Memory
             CardTurner();
         }
 
-        //Reseta värdena för ny omgång
-        private void button1_Click(object sender, EventArgs e)
+        //Uppdaterar scoreboarden
+        private void button2_Click(object sender, EventArgs e)
         {
+            var finalScoresSorted = new List<int>();
 
+            if (finalScores.Count == 0)
+            {
+                return;
+            }
+
+            //Rensar scoreboarden för ny omgång
+            label3.Text = "";
+
+            finalScoresSorted = Sorter.QuickSort(finalScores, 0, finalScores.Count - 1);
+
+            foreach (int temp in finalScoresSorted)
+            {
+                participators.TryGetValue(temp, out string name);
+                label3.Text += string.Format("Drag: {0} Namn: {1}\n", temp, name);
+            }
+
+            button2.Enabled = false;
+        }
+
+        //Reseta värdena för ny omgång
+        private void Restart(object sender, EventArgs e)
+        {
+            //Skuggar knappen
+            button1.Enabled = false;
+
+            //Int
+            firstClickedTag = 0;
+            secondClickedTag = 0;
+            numberOfPairsDiscovered = 0;
+            numberOfCardsUp = 0;
+            numberOfMoves = 0;
+
+            //List
+            cardIndexesShuffled.Clear();
+            cardImagesShuffled.Clear();
+
+            //Metoder
+            PictureSelector();
+            CardTurner();
         }
 
         //När en PictureBox på brädet klickas
@@ -118,12 +160,13 @@ namespace Memory
                 if(result == DialogResult.OK)
                 {
                     participators.Add(numberOfMoves, userInput.Name);
+                    finalScores.Add(numberOfMoves);
+                    button1.Enabled = true;
+                    button2.Enabled = true;
                 }
             }
             label2.Text = numberOfMoves.ToString();
         }
-
-
 
         //Ger en List med 8 blandade dubbletter 
         private void PictureSelector()
