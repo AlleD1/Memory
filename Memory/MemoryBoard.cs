@@ -43,30 +43,6 @@ namespace Memory
             CardTurner();
         }
 
-        //Uppdaterar scoreboarden
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var finalScoresSorted = new List<int>();
-
-            if (finalScores.Count == 0)
-            {
-                return;
-            }
-
-            //Rensar scoreboarden för ny omgång
-            label3.Text = "";
-
-            finalScoresSorted = Sorter.QuickSort(finalScores, 0, finalScores.Count - 1);
-
-            foreach (int temp in finalScoresSorted)
-            {
-                participators.TryGetValue(temp, out string name);
-                label3.Text += string.Format("Drag: {0} Namn: {1}\n", temp, name);
-            }
-
-            button2.Enabled = false;
-        }
-
         //Reseta värdena för ny omgång
         private void Restart(object sender, EventArgs e)
         {
@@ -87,6 +63,30 @@ namespace Memory
             //Metoder
             PictureSelector();
             CardTurner();
+        }
+
+        private void UpdateScoreboard(object sender, EventArgs e)
+        {
+            var finalScoresSorted = new List<int>();
+
+            if (finalScores.Count == 0)
+            {
+                return;
+            }
+
+            //Rensar scoreboarden för ny omgång
+            label3.Text = "";
+
+            //Sorterar poängen
+            finalScoresSorted = Sorter.QuickSort(finalScores, 0, finalScores.Count - 1);
+
+            foreach (int temp in finalScoresSorted)
+            {
+                participators.TryGetValue(temp, out string name);
+                label3.Text += string.Format("Drag: {0} Namn: {1}\n", temp, name);
+            }
+
+            button2.Enabled = false;
         }
 
         //När en PictureBox på brädet klickas
