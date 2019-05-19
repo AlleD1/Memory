@@ -13,6 +13,8 @@ namespace Memory
         int firstClickedTag = 0, secondClickedTag = 0, numberOfPairsDiscovered = 0,
             numberOfCardsUp = 0, numberOfMoves = 0;
 
+        bool participatorIsAdded = false;
+
         //16st blandade dubbletparvärden
         List<int> cardIndexesShuffled = new List<int>();
         //8st blandade kort i samma ordning som cardIndexesShuffled baserat på index
@@ -22,7 +24,10 @@ namespace Memory
         //Lista med antalet drag för varje omgång
         List<int> finalScores = new List<int>();
 
+        //Deltagarnas drag och namn
         Dictionary<int, string> participators = new Dictionary<int, string>();
+
+        DialogResult result;
 
         public MemoryBoard()
         {
@@ -45,6 +50,7 @@ namespace Memory
         {
             //Skuggar knappen
             button1.Enabled = false;
+            button2.Enabled = false;
 
             //Int
             firstClickedTag = 0;
@@ -53,6 +59,9 @@ namespace Memory
             numberOfCardsUp = 0;
             numberOfMoves = 0;
 
+            //Bool
+            participatorIsAdded = false;
+
             //List
             cardIndexesShuffled.Clear();
             cardImagesShuffled.Clear();
@@ -60,6 +69,9 @@ namespace Memory
             //Metoder
             PictureSelector();
             CardTurner();
+
+            //Dialogresultat
+            result = DialogResult.Cancel;
         }
 
         private void UpdateScoreboard(object sender, EventArgs e)
@@ -148,18 +160,31 @@ namespace Memory
             //Om alla paren är hittade
             else
             {
-                //Mata in vad userinput snappar upp in i dictionaryn
-                //Bl.a. kalla på UserInput
-                var userInput = new UserInput();
-                var result = userInput.ShowDialog();
-
-                //Om godtagbart värde returneras (om UserInput inte stängs med X)
-                if(result == DialogResult.OK)
+                if (result != DialogResult.OK)
                 {
-                    participators.Add(numberOfMoves, userInput.Name);
-                    finalScores.Add(numberOfMoves);
-                    button1.Enabled = true;
-                    button2.Enabled = true;
+                    //Bl.a. kalla på UserInput
+                    var userInput = new UserInput();
+                    result = userInput.ShowDialog();
+
+                    //Om godtagbart värde returneras
+                    if (result == DialogResult.OK)
+                    {
+                        //Kollar om samma antal drag redan finns med i scoreboarden
+                        for(int i = 0; participatorIsAdded == false; i++)
+                        {
+                            //Om dubblett finns går in i "finally" blocket 
+                            try
+                            {
+                                participators.Add(numberOfMoves + i, userInput.Name);
+                                participatorIsAdded = true;
+                            }
+                            finally
+                            {}
+                        }
+                        finalScores.Add(numberOfMoves);
+                        button1.Enabled = true;
+                        button2.Enabled = true;
+                    }
                 }
             }
             label2.Text = numberOfMoves.ToString();
